@@ -1,11 +1,12 @@
 const router = require('express').Router();
+const {PrismaClient} = require('@prisma/client')
 
 //getAll products
 router.get('/products', async (req, res, next) => {
   res.send({ message: 'Ok api is working 🚀' });
 });
 
-//getAll single product
+//get single product
 router.get('/products/:id', async (req, res, next) => {
   res.send({ message: 'Ok api is working 🚀' });
 });
@@ -15,7 +16,7 @@ router.post('/products/', async (req, res, next) => {
   res.send({ message: 'Ok api is working 🚀' });
 });
 
-//pudate single product
+//update single product
 router.patch('/products/:id', async (req, res, next) => {
   res.send({ message: 'Ok api is working 🚀' });
 });
