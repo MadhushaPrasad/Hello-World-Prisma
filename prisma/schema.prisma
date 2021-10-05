@@ -2,10 +2,26 @@
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 datasource db {
-  provider = "postgresql"
+  provider = "sqlite"
   url      = env("DATABASE_URL")
 }
 
 generator client {
   provider = "prisma-client-js"
+}
+
+
+model Product {
+  id Int @id @default(autoincrement())
+  name String @unique
+  price Int @default(999)
+  createdAt DateTime @default(now())
+  category Category? @relation(fields: [categoryID], references: [id])
+  categoryID Int?
+}
+
+model Category{
+  id Int @id @default(autoincrement())
+  name String @unique
+  products Product[]
 }
