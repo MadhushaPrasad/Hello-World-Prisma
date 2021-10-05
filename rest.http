@@ -1,6 +1,10 @@
 ### GET ALL Products
 GET http://localhost:3000/api/products
 
+
+### GET Single Products
+GET http://localhost:3000/api/products/1
+
 ### GET ALL Products
 POST http://localhost:3000/api/products
 Content-Type: application/json
@@ -10,3 +14,5 @@ Content-Type: application/json
     "price":45646,
     "categoryID": 1
 }
+
+
