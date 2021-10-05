@@ -3,12 +3,10 @@ GET http://localhost:3000/api/products
 
 
 ### GET Single Products
-GET http://localhost:3000/api/products/1
+GET http://localhost:3000/api/products/3
 
-### DELETE Single Products
-DELETE http://localhost:3000/api/products/2
 
-### GET ALL Products
+### ADD ALL Products
 POST http://localhost:3000/api/products
 Content-Type: application/json
 
@@ -18,4 +16,19 @@ Content-Type: application/json
     "categoryID": 1
 }
 
+
+### DELETE Single Products
+DELETE http://localhost:3000/api/products/2
+
+
+
+### UPDATE Single Products
+PATCH http://localhost:3000/api/products/3
+Content-Type: application/json
+
+{
+    "name":"IPad Pro max"
+    "price": 12545,
+    "categoryID": 1
+}
 
