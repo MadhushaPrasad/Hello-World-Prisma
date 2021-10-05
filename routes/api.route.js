@@ -27,7 +27,15 @@ router.get('/products/:id', async (req, res, next) => {
 
 //add single product
 router.post('/products/', async (req, res, next) => {
-  res.send({ message: 'Ok api is working 🚀' });
+  try {
+    const product = await prisma.product.create({
+      data: req.body,
+    });
+
+    res.json(product);
+  } catch (error) {
+    next(error);
+  }
 });
 
 //update single product
