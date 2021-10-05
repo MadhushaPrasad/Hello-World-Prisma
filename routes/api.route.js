@@ -1,9 +1,16 @@
 const router = require('express').Router();
-const {PrismaClient} = require('@prisma/client')
+const { PrismaClient } = require('@prisma/client');
+
+const prisma = new PrismaClient();
 
 //getAll products
 router.get('/products', async (req, res, next) => {
-  res.send({ message: 'Ok api is working 🚀' });
+  try {
+    const products = await prisma.product.findMany({});
+    res.json(products);
+  } catch (error) {
+    next(error);
+  }
 });
 
 //get single product
