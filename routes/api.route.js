@@ -6,8 +6,15 @@ const prisma = new PrismaClient();
 //getAll products
 router.get('/products', async (req, res, next) => {
   try {
-    const products = await prisma.product.findMany({});
-    res.json(products);
+    //get product data within categories
+    const products = await prisma.product.findMany({
+      include: { category: true },
+    });
+
+    //get data only category
+    const categories = await prisma.category.findMany({});
+
+    res.json({ products, categories });
   } catch (error) {
     next(error);
   }
